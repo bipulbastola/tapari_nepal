@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	
+	<script type="text/javascript">
+		function validate(){
+			var pattern1=/^[a-zA-Z]+$/;
+			var pattern2=/^[a-zA-Z0-9]+$/;
+			// var pattern3=/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
+
+			var pattern3=/^[+]?([0-9]{3})?[-]?(0-9){10}$/
+			var x = document.getElementById("fname").value;
+			var y = document.getElementById("lname").value;
+			var z = document.getElementById("address").value;
+			var ph = document.getElementById("phone").value;
+			if (x==""){
+				alert ("First name required");
+				document.getElementById("fname").focus();
+				return false;
+
+			}
+			else if (!x.match(pattern1)) {
+				alert("Characters only allowed for firstname");
+				return false;
+				
+				document.getElementById("fname").value="";
+				document.getElementById("fname").focus();
+			}
+			else if (y==""){
+				alert("Last name required");
+				document.getElementById("lname").focus();
+				return false;
+			}
+			else if (!y.match(pattern1)) {
+				alert("Characters only allowed for lastname");
+				return false;
+				
+				document.getElementById("lname").value="";
+				document.getElementById("lname").focus();
+			}
+			else if (z=="") {
+				alert("Address required");
+				document.getElementById("address").focus();
+				return false;
+			}
+			else if (!z.match(pattern1)) {
+				alert("Characters only allowed for address");
+				return false;
+				
+				document.getElementById("address").value="";
+				document.getElementById("address").focus();
+			}
+			else if (ph=="") {
+				alert("Phone Number required");
+				document.getElementById("phone").focus();
+				return false;
+			}
+			else if(!ph.match(pattern2)){
+				alert("Enter valid phone number");
+				return false;
+				document.getElementById("phone").value="";
+				document.getElementById("phone").focus();
+			}
+			else if ((document.getElementById("tapari").checked||document.getElementById("duna").checked||document.getElementById("bota").checked)==false) {
+				alert("Please select atleast one items");
+				return false;
+			}
+			else if(((document.getElementById("tapari").checked)&&(document.getElementById("tapari_piece")==""))==true){
+				alert("Please enter the number of tapari you want to buy");
+				return false;
+			}
+			else if(((document.getElementById("duna").checked)&&(document.getElementById("duna_piece")==""))==true){
+				alert("Please enter the number of duna you want to buy");
+				return false;
+			}
+			else if(((document.getElementById("bota").checked)&&(document.getElementById("bota_piece")==""))==true){
+				alert("Please enter the number of bota you want to buy");
+				return false;
+			}
+
+			else{
+				return true;
+			}
+		}
+		function total_price(){
+			var tapari_p=document.getElementById("tapari_piece").value;
+			var duna_p=document.getElementById("duna_piece").value;
+			var bota_p=document.getElementById("bota_piece").value;
+			document.getElementById("total").value=tapari_p*7+duna_p*6+bota_p*5;
+		}
+	</script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="container">
+	<div id="mainpic">
+    </div>   
+    <div id="menu">
+       	<ul>
+            <li class="menuitem"><a href="index.html">Home</a></li>
+            <li class="menuitem"><a href="about.html">About</a></li>
+            <li class="menuitem"><a href="photo.html">Photo Gallery</a></li>
+            <li class="menuitem"><a href="order.html">Order</a></li>
+        </ul>
+    </div>   
+	<div id="content"> 
+		<table cellspacing="10" border="0">
+			<form method="POST" action="/opt/lampp/htdocs/index1.php">
+				<tr>
+					<td>&nbsp;</td>
+					<td style="font-size: 20px"><strong>Please place your order here:</strong></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>First Name: </td>
+					<td><input type="text" name="fname" id="fname"></td>
+				</tr>
+				<tr>
+					<td>Last Name: </td>
+					<td><input type="text" name="lname" id="lname"></td>
+				</tr>
+				<tr>
+					<td>Address: </td>
+					<td><input type="text" name="address" id="address"></td>
+				</tr>
+				<tr>
+					<td>Phone Number: </td>
+					<td><input type="text" name="phone" id="phone"></td>
+				</tr>
+				<tr>
+					<td>Items:</td>
+					<td><input type="checkbox" name="tapari" id="tapari">Tapari</td>
+					<td>Pieces:</td>
+					<td><input type="text" name="tapari_piece" id="tapari_piece" size="3"></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td><input type="checkbox" name="bota" id="bota">Bota</td>
+					<td>&nbsp;</td>
+					<td><input type="text" name="bota_piece" id="bota_piece" size="3" ></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td><input type="checkbox" name="duna" id="duna">Duna</td>
+					<td>&nbsp;</td>
+					<td><input type="text" name="duna_piece" id="duna_piece" size="3"></td>
+				</tr>
+				<tr>
+					<td>Total Price:</td>
+					<td><input type="text" name="toal" id="total" onclick="total_price()" placeholder="Click here to get total value"></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td><input type="submit" value="Submit" onclick="return validate()"></td>
+				</tr>
+			</form>
+		</table>			
+		       
+    </div>
+   </div>
+</body>
+</html>

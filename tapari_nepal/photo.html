@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Photo Gallery</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<style type="text/css">
+		#gallery{
+			border: 1px solid black;
+			width: 200px;
+			height:200px;
+			margin: 20px;
+			transition: 1s;
+			float: left;
+			
+		}
+		
+		#gallery:hover{
+			border: 1px solid #800000;
+			transform: scale(1.2);
+		
+		}
+		#gallery h4{
+			display: none;
+			position: absolute;
+			bottom: 0;
+			margin: 0;
+			text-align: center;
+			padding:10px 0; 
+			width: 100%;
+			background: grey;
+		}
+		#gallery:hover h4{
+			display: block;
+		}
+		#box{
+			border: 1px solid black;
+			margin-top: 10px;
+			width: auto;
+			height: auto;
+			
+		}
+		
+		
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div id="mainpic">
+        </div>   
+        
+        <div id="menu">
+        	<ul>
+            	<li class="menuitem"><a href="index.html">Home</a></li>
+                <li class="menuitem"><a href="about.html">About</a></li>
+                <li class="menuitem"><a href="photo.html">Photo Gallery</a></li>
+              <li class="menuitem"><a href="order.html">Order</a></li>
+            </ul>
+        </div>
+        
+		<div id="content">  
+			<div id="box">
+			<div id="gallery">
+				<a href="images/tapari1.jpg"><img src="images/tapari1.jpg" width="200" height="200"></a>
+				<h4>Tapari</h4>
+			</div>
+			<div id="gallery">
+				<a href="images/tapari2.jpg"><img src="images/tapari2.jpg" width="200" height="200"></a>
+				<h4>Tapari, Duna, Bota</h4>
+			</div>
+			<div id="gallery">
+				<a href="images/tapari3.jpg"><img src="images/tapari3.jpg" width="200" height="200"></a>
+				<h4>Bota with Flower and Diyo</h4>
+			</div>
+			<div id="gallery">
+				<a href="images/tapari4.jpg"><img src="images/tapari4.jpg" width="200" height="200"></a>
+				<h4>Items with different shapes and sizes</h4>
+			</div>
+			<div id="gallery">
+				<a href="images/tapari5.jpg"><img src="images/tapari5.jpg" width="200" height="200"></a>
+				<h4>Foods in Tapari and Duna</h4>
+			</div>
+			<div id="gallery">
+				<a href="images/tapari6.jpg"><img src="images/tapari6.jpg" width="200" height="200"></a>
+				<h4>Typical newari food in Tapari</h4>
+			</div> 
+			</div>  
+      	</div>
+   </div>
+</body>
+</html>
